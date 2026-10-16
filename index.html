@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Inbox Puzzles — Daily Puzzles Delivered to Your Inbox</title>
+
+  <meta name="description" content="Daily crossword, word search, sudoku, and cryptojoke puzzles delivered to your inbox. Mobile-friendly, interactive, no apps, no printing." />
+
+  <style>
+
+    :root{
+
+      --teal:#008080;
+
+      --teal-dark:#006a6a;
+
+      --gold:#d8c178;
+
+      --gold-soft:#f6f1df;
+
+      --text:#222222;
+
+      --muted:#5a5a5a;
+
+      --light:#fafafa;
+
+      --line:#e6e1d2;
+
+      --white:#ffffff;
+
+      --shadow:0 8px 24px rgba(0,0,0,.08);
+
+      --radius:18px;
+
+      --max:1100px;
+
+    }
+
+    *{box-sizing:border-box}
+
+    html,body{margin:0;padding:0}
+
+    body{
+
+      font-family:Arial, Helvetica, sans-serif;
+
+      color:var(--text);
+
+      background:var(--white);
+
+      line-height:1.6;
+
+      -webkit-font-smoothing:antialiased;
+
+      text-rendering:optimizeLegibility;
+
+    }
+
+    img{max-width:100%;display:block}
+
+    a{text-decoration:none}
+
+    .wrap{
+
+      width:min(100%, var(--max));
+
+      margin:0 auto;
+
+      padding:0 16px;
+
+    }
+
+    .section{
+
+      padding:56px 0;
+
+    }
+
+    .soft-section{
+
+      background:#fcfbf6;
+
+      border-top:1px solid var(--line);
+
+      border-bottom:1px solid var(--line);
+
+    }
+
+    .hero{
+
+      background:linear-gradient(180deg, #ffffff 0%, #fcfbf6 100%);
+
+      border-bottom:1px solid var(--line);
+
+    }
+
+    .topbar{
+
+      padding:18px 0 8px;
+
+    }
+
+    .logo{
+
+      width:220px;
+
+      margin:0 auto;
+
+    }
+
+    .hero-grid{
+
+      display:grid;
+
+      grid-template-columns:1.05fr .95fr;
+
+      gap:28px;
+
+      align-items:center;
+
+      padding:24px 0 56px;
+
+    }
+
+    .eyebrow{
+
+      color:var(--teal);
+
+      font-weight:700;
+
+      letter-spacing:.3px;
+
+      font-size:14px;
+
+      margin-bottom:10px;
+
+      text-transform:uppercase;
+
+    }
+
+    h1{
+
+      font-size:44px;
+
+      line-height:1.1;
+
+      margin:0 0 14px;
+
+      color:var(--teal);
+
+    }
+
+    .hero p{
+
+      font-size:18px;
+
+      color:var(--muted);
+
+      margin:0 0 24px;
+
+      max-width:650px;
+
+    }
+
+    .cta-row{
+
+      display:flex;
+
+      flex-wrap:wrap;
+
+      gap:12px;
+
+      align-items:center;
+
+      margin-bottom:14px;
+
+    }
+
+    .btn{
+
+      display:inline-block;
+
+      padding:14px 22px;
+
+      border-radius:12px;
+
+      font-weight:700;
+
+      font-size:16px;
+
+      text-align:center;
+
+      transition:.18s ease;
+
+    }
+
+    .btn-primary{
+
+      background:var(--teal);
+
+      color:#fff;
+
+      box-shadow:var(--shadow);
+
+    }
+
+    .btn-primary:hover{background:var(--teal-dark)}
+
+    .btn-secondary{
+
+      background:#fff;
+
+      color:var(--teal);
+
+      border:2px solid var(--teal);
+
+    }
+
+    .btn-secondary:hover{
+
+      background:#f6ffff;
+
+    }
+
+    .micro-link{
+
+      display:inline-block;
+
+      font-size:14px;
+
+      color:var(--teal);
+
+      font-weight:700;
+
+      margin-top:4px;
+
+    }
+
+    .micro-note{
+
+      font-size:14px;
+
+      color:#777;
+
+      margin-top:10px;
+
+    }
+
+    .hero-card{
+
+      background:var(--white);
+
+      border:2px solid var(--gold);
+
+      border-radius:22px;
+
+      box-shadow:var(--shadow);
+
+      padding:18px;
+
+    }
+
+    .device{
+
+      background:#fff;
+
+      border:1px solid #ddd;
+
+      border-radius:22px;
+
+      padding:10px;
+
+      box-shadow:0 8px 24px rgba(0,0,0,.08);
+
+    }
+
+    .device-screen{
+
+      background:#fff;
+
+      border-radius:16px;
+
+      overflow:hidden;
+
+      border:1px solid #e8e8e8;
+
+    }
+
+    .device-bar{
+
+      background:var(--teal);
+
+      color:#fff;
+
+      text-align:center;
+
+      font-weight:700;
+
+      font-size:16px;
+
+      padding:12px 10px;
+
+    }
+
+    .device-body{
+
+      padding:14px;
+
+      background:#fffdf7;
+
+    }
+
+    .device-day{
+
+      text-align:center;
+
+      color:#777;
+
+      font-size:12px;
+
+      margin-bottom:10px;
+
+      font-weight:700;
+
+    }
+
+    .device-body-preview{
+
+      background:#fffdf7;
+
+    }
+
+    .preview-grid{
+
+      display:grid;
+
+      grid-template-columns:1.12fr .88fr;
+
+      gap:12px;
+
+      align-items:start;
+
+    }
+
+    .preview-main,
+
+    .preview-thumb{
+
+      position:relative;
+
+      background:#fff;
+
+      border:2px solid var(--gold);
+
+      border-radius:14px;
+
+      overflow:hidden;
+
+      box-shadow:0 3px 10px rgba(0,0,0,.05);
+
+    }
+
+    .preview-main{
+
+      display:flex;
+
+      flex-direction:column;
+
+      background:#fffdf7;
+
+    }
+
+    .preview-stack{
+
+      display:grid;
+
+      grid-template-rows:repeat(3,1fr);
+
+      gap:12px;
+
+    }
+
+    .preview-thumb{
+
+      min-height:155px;
+
+    }
+
+    .preview-main img{
+
+      width:100%;
+
+      height:auto;
+
+      display:block;
+
+      background:#fffdf7;
+
+      flex:0 0 auto;
+
+    }
+
+    .preview-thumb img{
+
+      width:100%;
+
+      height:100%;
+
+      object-fit:contain;
+
+      object-position:center top;
+
+      display:block;
+
+      background:#fff;
+
+    }
+
+    .preview-label{
+
+      position:absolute;
+
+      left:10px;
+
+      bottom:10px;
+
+      background:rgba(255,255,255,.95);
+
+      color:var(--teal);
+
+      font-size:11px;
+
+      font-weight:700;
+
+      line-height:1;
+
+      padding:6px 9px;
+
+      border-radius:999px;
+
+      border:1px solid rgba(0,128,128,.14);
+
+      box-shadow:0 2px 6px rgba(0,0,0,.06);
+
+      z-index:2;
+
+    }
+
+    .preview-main .preview-label{
+
+      top:10px;
+
+      bottom:auto;
+
+      font-size:12px;
+
+      padding:7px 11px;
+
+    }
+
+    .preview-main-footer{
+
+      padding:12px 14px 14px;
+
+      background:#fffdf7;
+
+      border-top:1px solid #efe7cf;
+
+    }
+
+    .preview-main-points{
+
+      display:grid;
+
+      gap:10px;
+
+    }
+
+    .preview-main-point{
+
+      display:flex;
+
+      gap:10px;
+
+      align-items:flex-start;
+
+      font-size:12px;
+
+      line-height:1.3;
+
+      color:var(--muted);
+
+    }
+
+    .preview-main-point strong{
+
+      color:var(--teal);
+
+      font-weight:700;
+
+      display:block;
+
+      margin-bottom:1px;
+
+      font-size:12px;
+
+    }
+
+    .preview-main-icon{
+
+      flex:0 0 24px;
+
+      width:24px;
+
+      height:24px;
+
+      border-radius:999px;
+
+      background:var(--teal);
+
+      color:#fff;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      font-size:12px;
+
+      font-weight:700;
+
+      line-height:1;
+
+      margin-top:1px;
+
+    }
+
+    h2{
+
+      margin:0 0 12px;
+
+      font-size:34px;
+
+      line-height:1.15;
+
+      color:var(--teal);
+
+      text-align:center;
+
+    }
+
+    .lead{
+
+      max-width:760px;
+
+      margin:0 auto 30px;
+
+      text-align:center;
+
+      color:var(--muted);
+
+      font-size:18px;
+
+    }
+
+    .features,
+
+    .steps,
+
+    .plans,
+
+    .faqs,
+
+    .fit-grid{
+
+      display:grid;
+
+      gap:18px;
+
+    }
+
+    .features{
+
+      grid-template-columns:repeat(3,1fr);
+
+    }
+
+    .steps{
+
+      grid-template-columns:repeat(3,1fr);
+
+    }
+
+    .fit-grid{
+
+      grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .plans{
+
+      grid-template-columns:repeat(2,1fr);
+
+      max-width:840px;
+
+      margin:0 auto;
+
+    }
+
+    .card{
+
+      background:#fff;
+
+      border:1px solid var(--line);
+
+      border-radius:var(--radius);
+
+      padding:22px;
+
+      box-shadow:0 2px 10px rgba(0,0,0,.04);
+
+    }
+
+    .card h3{
+
+      margin:0 0 8px;
+
+      color:var(--teal);
+
+      font-size:22px;
+
+    }
+
+    .card p{
+
+      margin:0;
+
+      color:var(--muted);
+
+      font-size:15px;
+
+    }
+
+    .step-num{
+
+      width:36px;
+
+      height:36px;
+
+      border-radius:999px;
+
+      background:var(--teal);
+
+      color:#fff;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      font-weight:700;
+
+      margin-bottom:12px;
+
+    }
+
+    .plan{
+
+      position:relative;
+
+      border:2px solid var(--line);
+
+    }
+
+    .plan.best{
+
+      border-color:var(--gold);
+
+      background:linear-gradient(180deg, #fff 0%, #fffdf7 100%);
+
+    }
+
+    .badge{
+
+      position:absolute;
+
+      top:-12px;
+
+      right:16px;
+
+      background:var(--gold);
+
+      color:#3d3320;
+
+      font-weight:700;
+
+      font-size:12px;
+
+      padding:6px 10px;
+
+      border-radius:999px;
+
+    }
+
+    .price{
+
+      font-size:40px;
+
+      line-height:1;
+
+      color:var(--teal);
+
+      font-weight:700;
+
+      margin:10px 0 4px;
+
+    }
+
+    .price small{
+
+      font-size:16px;
+
+      color:#666;
+
+      font-weight:700;
+
+    }
+
+    .plan ul{
+
+      list-style:none;
+
+      padding:0;
+
+      margin:16px 0 20px;
+
+    }
+
+    .plan li{
+
+      padding:7px 0;
+
+      color:var(--muted);
+
+      border-bottom:1px solid #f0ece0;
+
+    }
+
+    .plan li:last-child{border-bottom:none}
+
+    .pricing-note{
+
+      text-align:center;
+
+      font-size:13px;
+
+      color:#777;
+
+      margin-top:16px;
+
+    }
+
+    .cta-band{
+
+      background:var(--gold-soft);
+
+      border-top:1px solid var(--line);
+
+      border-bottom:1px solid var(--line);
+
+    }
+
+    .cta-band .inner{
+
+      max-width:840px;
+
+      margin:0 auto;
+
+      text-align:center;
+
+    }
+
+    .faq{
+
+      max-width:840px;
+
+      margin:0 auto;
+
+    }
+
+    .faq details{
+
+      border:1px solid var(--line);
+
+      border-radius:14px;
+
+      padding:16px 18px;
+
+      background:#fff;
+
+    }
+
+    .faq summary{
+
+      cursor:pointer;
+
+      font-weight:700;
+
+      color:var(--teal);
+
+      list-style:none;
+
+    }
+
+    .faq summary::-webkit-details-marker{display:none}
+
+    .faq p{
+
+      color:var(--muted);
+
+      margin:12px 0 0;
+
+    }
+
+    .site-footer{
+
+      text-align:center;
+
+      padding:20px 16px 32px;
+
+      color:#777;
+
+      font-size:13px;
+
+    }
+
+    .footer-inner{
+
+      display:flex;
+
+      flex-direction:column;
+
+      align-items:center;
+
+      gap:6px;
+
+      max-width:840px;
+
+      margin:0 auto;
+
+      line-height:1.4;
+
+    }
+
+    .footer-links{
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      gap:6px;
+
+      flex-wrap:wrap;
+
+    }
+
+    .footer-links a{
+
+      color:var(--teal);
+
+      font-weight:600;
+
+    }
+
+    .muted-link{
+
+      color:var(--teal);
+
+    }
+
+    @media (max-width: 900px){
+
+      .hero-grid,
+
+      .features,
+
+      .steps,
+
+      .plans,
+
+      .fit-grid{
+
+        grid-template-columns:1fr;
+
+      }
+
+      h1{
+
+        font-size:36px;
+
+      }
+
+      h2{
+
+        font-size:30px;
+
+      }
+
+      .hero-grid{
+
+        padding-top:14px;
+
+      }
+
+      .hero-copy{
+
+        text-align:center;
+
+      }
+
+      .hero p{
+
+        margin-left:auto;
+
+        margin-right:auto;
+
+      }
+
+      .cta-row{
+
+        justify-content:center;
+
+      }
+
+    }
+
+    @media (max-width: 700px){
+
+      .preview-grid{
+
+        grid-template-columns:1fr;
+
+      }
+
+      .preview-stack{
+
+        display:none;
+
+      }
+
+      .hero-card{
+
+        padding:14px;
+
+      }
+
+      .device{
+
+        padding:8px;
+
+      }
+
+      .device-body{
+
+        padding:12px;
+
+      }
+
+      .preview-main .preview-label{
+
+        top:8px;
+
+        left:8px;
+
+      }
+
+      .preview-main-footer{
+
+        padding:12px;
+
+      }
+
+      .preview-main-points{
+
+        gap:8px;
+
+      }
+
+      .preview-main-point{
+
+        font-size:12px;
+
+      }
+
+      .preview-main-point strong{
+
+        font-size:12px;
+
+      }
+
+      .preview-main-icon{
+
+        width:22px;
+
+        height:22px;
+
+        font-size:11px;
+
+        flex-basis:22px;
+
+      }
+
+    }
+
+    @media (max-width: 520px){
+
+      .section{
+
+        padding:46px 0;
+
+      }
+
+      h1{
+
+        font-size:32px;
+
+      }
+
+      h2{
+
+        font-size:27px;
+
+      }
+
+      .hero p,
+
+      .lead{
+
+        font-size:16px;
+
+      }
+
+      .btn{
+
+        width:100%;
+
+      }
+
+      .cta-row{
+
+        flex-direction:column;
+
+      }
+
+      .preview-label{
+
+        font-size:10px;
+
+        padding:5px 8px;
+
+      }
+
+      .preview-main .preview-label{
+
+        font-size:11px;
+
+        padding:6px 9px;
+
+      }
+
+      .preview-main-footer{
+
+        padding:10px 10px 12px;
+
+      }
+
+      .preview-main-point{
+
+        font-size:11px;
+
+        gap:8px;
+
+      }
+
+      .preview-main-point strong{
+
+        font-size:11px;
+
+      }
+
+      .preview-main-icon{
+
+        width:20px;
+
+        height:20px;
+
+        font-size:10px;
+
+        flex-basis:20px;
+
+      }
+
+      .site-footer{
+
+        padding:18px 14px 28px;
+
+      }
+
+      .footer-inner{
+
+        gap:5px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <header class="hero">
+
+    <div class="wrap topbar">
+
+      <img class="logo" src="https://chrisabbe.github.io/Solutions/assets/inbox-puzzles-logo.png" alt="Inbox Puzzles" />
+
+    </div>
+
+    <div class="wrap hero-grid">
+
+      <div class="hero-copy">
+
+        <div class="eyebrow">Daily puzzles made simple</div>
+
+        <h1>Daily Puzzles, Delivered to Your Inbox</h1>
+
+        <p>
+
+          Crossword, Word Search, Sudoku, and Cryptojoke — ready to play instantly on your phone.
+
+          No apps. No printing. Just open your email and tap to play.
+
+        </p>
+
+        <div class="trial-cta">
+
+          <a class="btn btn-primary" href="https://chrisabbe.github.io/Solutions/form/index.html">Start Your Free Trial Today</a>
+
+          <div class="micro-note trial-note">
+
+            No credit card required. Try the full daily puzzle experience free for 7 days.
+
+          </div>
+
+        </div>
+
+        <div class="paid-path">
+
+          <a class="micro-link" href="#pricing">Prefer to skip the trial? Start paid now.</a>
+
+          <a class="btn btn-secondary pricing-small" href="#pricing">See Pricing</a>
+
+        </div>
+
+        <div class="micro-note">
+
+          Continue anytime with monthly or yearly plans.
+
+        </div>
+
+      </div>
+
+      <div class="hero-card">
+
+        <div class="device">
+
+          <div class="device-screen">
+
+            <div class="device-bar">Your Daily Puzzles Are Ready</div>
+
+            <div class="device-body device-body-preview">
+
+              <div class="device-day">Trial Day 1</div>
+
+              <div class="preview-grid">
+
+                <div class="preview-main">
+
+                  <img src="https://chrisabbe.github.io/inbox-puzzles-sales-page/assets/crossword.jpg" alt="Inbox Puzzles crossword preview" />
+
+                  <div class="preview-label">Crossword</div>
+
+                  <div class="preview-main-footer">
+
+                    <div class="preview-main-points">
+
+                      <div class="preview-main-point">
+
+                        <div class="preview-main-icon">✉</div>
+
+                        <div>
+
+                          <strong>Delivered daily by email</strong>
+
+                          A fresh set of puzzles waiting for you.
+
+                        </div>
+
+                      </div>
+
+                      <div class="preview-main-point">
+
+                        <div class="preview-main-icon">▶</div>
+
+                        <div>
+
+                          <strong>Play instantly</strong>
+
+                          Tap to solve on your phone, tablet, or computer.
+
+                        </div>
+
+                      </div>
+
+                      <div class="preview-main-point">
+
+                        <div class="preview-main-icon">✓</div>
+
+                        <div>
+
+                          <strong>No apps. No printing.</strong>
+
+                          Just open your email and start playing.
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="preview-stack">
+
+                  <div class="preview-thumb">
+
+                    <img src="https://chrisabbe.github.io/inbox-puzzles-sales-page/assets/word-search.jpg" alt="Inbox Puzzles word search preview" />
+
+                    <div class="preview-label">Word Search</div>
+
+                  </div>
+
+                  <div class="preview-thumb">
+
+                    <img src="https://chrisabbe.github.io/inbox-puzzles-sales-page/assets/sudoku.jpg" alt="Inbox Puzzles sudoku preview" />
+
+                    <div class="preview-label">Sudoku</div>
+
+                  </div>
+
+                  <div class="preview-thumb">
+
+                    <img src="https://chrisabbe.github.io/inbox-puzzles-sales-page/assets/cryptojoke.jpg" alt="Inbox Puzzles cryptojoke preview" />
+
+                    <div class="preview-label">Cryptojoke</div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <section class="section">
+
+    <div class="wrap">
+
+      <h2>How It Works</h2>
+
+      <p class="lead">
+
+        A simple daily routine. No setup. No clutter. Just quality puzzles delivered straight to your inbox.
+
+      </p>
+
+      <div class="steps">
+
+        <div class="card">
+
+          <div class="step-num">1</div>
+
+          <h3>Sign up</h3>
+
+          <p>Start with a free 7-day trial, or jump straight into a paid plan if you already know you want daily puzzles.</p>
+
+        </div>
+
+        <div class="card">
+
+          <div class="step-num">2</div>
+
+          <h3>Check your email</h3>
+
+          <p>Each day you’ll receive a fresh set of puzzles, plus the previous day’s solutions.</p>
+
+        </div>
+
+        <div class="card">
+
+          <div class="step-num">3</div>
+
+          <h3>Tap and play</h3>
+
+          <p>Open the puzzle on your phone, tablet, or computer and solve it instantly — no app or printing required.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section soft-section">
+
+    <div class="wrap">
+
+      <h2>What Happens After You Start</h2>
+
+      <p class="lead">
+
+        Your trial begins right away. Confirm your email, open your first puzzle set, and start playing in minutes.
+
+      </p>
+
+      <div class="features">
+
+        <div class="card">
+
+          <h3>1. Confirm your email</h3>
+
+          <p>After signing up, you’ll receive a quick confirmation email so your puzzles go to the right inbox.</p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>2. Open Day 1</h3>
+
+          <p>Your first set of puzzles arrives right away, with simple links you can tap from any device.</p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>3. Enjoy the routine</h3>
+
+          <p>Each day, a fresh puzzle set arrives automatically — no app, no login, no printing.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <div class="wrap">
+
+      <h2>What You Get Every Day</h2>
+
+      <p class="lead">
+
+        A complete set of interactive puzzles designed to be easy to access and enjoyable to solve.
+
+      </p>
+
+      <div class="features">
+
+        <div class="card">
+
+          <h3>Crossword</h3>
+
+          <p>Mobile-friendly and easy to play right in your browser, with progress saved automatically.</p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Word Search</h3>
+
+          <p>Tap and drag to highlight words with a clean, responsive layout that works beautifully on phones.</p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Sudoku</h3>
+
+          <p>A smooth digital version of a classic favorite — simple, clear, and satisfying to solve.</p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Cryptojoke</h3>
+
+          <p>A playful daily decoding puzzle that adds variety and a little humor to the mix.</p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Previous Day’s Solutions</h3>
+
+          <p>See how you did and check your answers without breaking the rhythm of the next day’s set.</p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Archive Access</h3>
+
+          <p>If you miss a day, your available puzzles stay easy to find and return to later.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section soft-section">
+
+    <div class="wrap">
+
+      <h2>Why Inbox Puzzles Feels Different</h2>
+
+      <p class="lead">
+
+        It keeps the good parts of traditional puzzles — and removes the friction.
+
+      </p>
+
+      <div class="fit-grid">
+
+        <div class="card">
+
+          <h3>No apps</h3>
+
+          <p>No downloads, no notifications, no app clutter. Just open your email and start.</p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>No printing</h3>
+
+          <p>Everything is designed to be solved directly on your device, wherever you are.</p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Mobile-friendly</h3>
+
+          <p>The experience is built for phones and tablets first, not squeezed awkwardly onto a small screen.</p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Calm and simple</h3>
+
+          <p>No noisy ads, no distractions, no complicated menus — just your daily puzzles, ready when you are.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <div class="wrap">
+
+      <h2>Perfect For Quiet Puzzle Moments</h2>
+
+      <p class="lead">
+
+        Inbox Puzzles fits naturally into the small peaceful pauses already built into your day.
+
+      </p>
+
+      <div class="features">
+
+        <div class="card">
+
+          <h3>Morning coffee</h3>
+
+          <p>Start the day with a fresh crossword, sudoku, word search, or cryptojoke in your inbox.</p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Afternoon breaks</h3>
+
+          <p>Take a few relaxing minutes away from the noise and enjoy a simple mental reset.</p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Evening wind-down</h3>
+
+          <p>Settle in with a calm puzzle routine that does not require another app or screen full of clutter.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section cta-band">
+
+    <div class="wrap inner">
+
+      <h2>A Small Daily Habit Worth Keeping</h2>
+
+      <p class="lead" style="margin-bottom:22px;">
+
+        A few minutes to focus. A quick challenge. A satisfying little win in the middle of your day.
+
+      </p>
+
+      <a class="btn btn-primary" href="https://chrisabbe.github.io/Solutions/form/index.html">Start Your Free Trial Today</a>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <div class="wrap">
+
+      <h2>Designed for Puzzle Lovers Who Like Things Simple</h2>
+
+      <p class="lead">
+
+        Inbox Puzzles was built for people who enjoy classic puzzles, but want a cleaner and easier way to play them digitally.
+
+      </p>
+
+      <div class="fit-grid">
+
+        <div class="card">
+
+          <h3>Easy to understand</h3>
+
+          <p>No dashboard to learn. No complicated account area. Your puzzle links arrive by email.</p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Comfortable on tablets</h3>
+
+          <p>The puzzles are designed with phones and tablets in mind, especially for relaxed everyday solving.</p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>No noisy distractions</h3>
+
+          <p>The experience is intentionally calm, clean, and focused on the puzzles themselves.</p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Cancel anytime</h3>
+
+          <p>Subscription management is simple through the secure billing portal.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="pricing" class="section soft-section">
+
+    <div class="wrap">
+
+      <h2>Simple Pricing</h2>
+
+      <p class="lead">
+
+        Start with a free 7-day trial. When you’re ready, most puzzlers choose yearly to save.
+
+      </p>
+
+      <div class="plans">
+
+        <div class="card plan">
+
+          <h3>Monthly</h3>
+
+          <div class="price">$7<small>/month</small></div>
+
+          <p>Flexible and easy. Pay month-to-month.</p>
+
+          <ul>
+
+            <li>Daily puzzles delivered by email</li>
+
+            <li>Crossword, Word Search, Sudoku, and Cryptojoke</li>
+
+            <li>Previous day’s solutions included</li>
+
+            <li>Easy access on phone, tablet, or computer</li>
+
+          </ul>
+
+          <a class="btn btn-secondary" href="https://buy.stripe.com/cNi6oHaBI13B441cZxfrW01">Choose Monthly</a>
+
+          <div style="font-size:13px; color:#777; margin-top:8px;">
+
+            Pay month-to-month
+
+          </div>
+
+        </div>
+
+        <div class="card plan best">
+
+          <div class="badge">Best Value • Most Popular</div>
+
+          <h3>Yearly</h3>
+
+          <div class="price">$70<small>/year</small></div>
+
+          <div style="font-size:14px; color:#666; margin-top:6px;">
+
+            Just $5.83/month when billed yearly
+
+          </div>
+
+          <p><strong>Save $14 per year</strong> — best value for daily puzzlers.</p>
+
+          <ul>
+
+            <li>Everything in the monthly plan</li>
+
+            <li>One simple payment for the full year</li>
+
+            <li>Never miss a day of puzzles</li>
+
+            <li>Best for committed daily puzzlers</li>
+
+          </ul>
+
+          <a class="btn btn-primary" href="https://buy.stripe.com/4gM5kDaBI6nV2ZXaRpfrW03">Start Yearly & Save</a>
+
+          <div style="font-size:13px; color:#777; margin-top:8px;">
+
+            Best value for daily puzzlers
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="pricing-note">
+
+        Cancel anytime. No long-term commitment.
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <div class="wrap">
+
+      <h2>Who It’s For</h2>
+
+      <p class="lead">
+
+        Inbox Puzzles is for people who love puzzles — and want them to fit naturally into daily life.
+
+      </p>
+
+      <div class="features">
+
+        <div class="card">
+
+          <h3>Puzzle lovers</h3>
+
+          <p>For anyone who enjoys crosswords, word searches, sudoku, and classic brain-teasers.</p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Busy adults</h3>
+
+          <p>For people who want a quick, satisfying mental break without adding another app to manage.</p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Seniors</h3>
+
+          <p>For those who want a familiar puzzle experience in a simpler digital format.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section soft-section">
+
+    <div class="wrap faq">
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faqs">
+
+        <details>
+
+          <summary>Do I need to install an app?</summary>
+
+          <p>No. Everything works right in your browser. Just open the email and tap the puzzle.</p>
+
+        </details>
+
+        <details>
+
+          <summary>Can I play on my phone?</summary>
+
+          <p>Yes. Inbox Puzzles is designed to work smoothly on phones, tablets, and computers.</p>
+
+        </details>
+
+        <details>
+
+          <summary>What do I get each day?</summary>
+
+          <p>You’ll receive a daily crossword, word search, sudoku, and cryptojoke, along with the previous day’s solutions.</p>
+
+        </details>
+
+        <details>
+
+          <summary>What if I miss a day?</summary>
+
+          <p>Your available puzzles can still be accessed through your archive, so you can catch up later.</p>
+
+        </details>
+
+        <details>
+
+          <summary>Do I start with a trial?</summary>
+
+          <p>Yes. The main path starts with a free 7-day trial. If you already know you want in, you can also start paid right away.</p>
+
+        </details>
+
+        <details>
+
+          <summary>What’s the difference between monthly and yearly?</summary>
+
+          <p>The experience is the same. The yearly plan simply saves you money — 2 months free compared to paying monthly.</p>
+
+        </details>
+
+        <details>
+
+          <summary>Do I need a credit card for the free trial?</summary>
+
+          <p>No. You can try the daily puzzle experience free for 7 days without entering a credit card.</p>
+
+        </details>
+
+        <details>
+
+          <summary>Can I cancel if I choose a paid plan?</summary>
+
+          <p>Yes. You can manage or cancel your subscription through the secure billing portal.</p>
+
+        </details>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section cta-band">
+
+    <div class="wrap inner">
+
+      <h2>Start Your Daily Puzzle Routine</h2>
+
+      <p class="lead" style="margin-bottom:22px;">
+
+        Try it free for 7 days and see how easily it fits into your day.
+
+      </p>
+
+      <div class="cta-row" style="justify-content:center;">
+
+        <a class="btn btn-primary" href="https://chrisabbe.github.io/Solutions/form/index.html">Start Your Free Trial Today</a>
+
+        <a class="btn btn-secondary" href="#pricing">Start Paid Now</a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer class="site-footer">
+
+    <div class="footer-inner">
+
+      <div>
+
+        Questions?
+
+        <a class="muted-link" href="mailto:support@inboxpuzzles.com">
+
+          support@inboxpuzzles.com
+
+        </a>
+
+      </div>
+
+      <div class="footer-links">
+
+        <a href="https://chrisabbe.github.io/Solutions/terms.html" target="_blank">Terms</a>
+
+        <span>•</span>
+
+        <a href="https://chrisabbe.github.io/Solutions/privacy.html" target="_blank">Privacy</a>
+
+      </div>
+
+      <div>© 2026 Inbox Puzzles</div>
+
+      <div>Created by Chris Abbe</div>
+
+      <div>Abbe Ventures</div>
+
+    </div>
+
+  </footer>
+
+</body>
+
+</html>
